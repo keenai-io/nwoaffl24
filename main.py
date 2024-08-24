@@ -2,11 +2,10 @@ import streamlit as st
 from components.traderoom import display_trade_room
 from components.draftboard import display_draftboard
 from components.commissioner import display_commissioner
+from components.team import display_team
 
-# Set up the page configuration for a wide layout
 st.set_page_config(page_title="NWOAFFL 2024", page_icon=":football:", layout="wide")
 
-# Custom CSS to make the app wider
 st.markdown(
     """
     <style>
@@ -34,7 +33,7 @@ if 'trade_room_access' not in st.session_state:
 if 'commissioner_access' not in st.session_state:
     st.session_state.commissioner_access = False
 
-tab1, tab2, tab3 = st.tabs(["Draftboard", "Trade Room", "Commissioner"])
+tab1, tab2, tab3, tab4 = st.tabs(["Draftboard", "Trade Room", "Commissioner", "Team"])
 
 with tab1:
     display_draftboard()
@@ -66,3 +65,6 @@ with tab3:
     else:
         st.title("Commissioner")
         display_commissioner()
+
+with tab4:
+    display_team()  # Use the new Team component
