@@ -27,7 +27,7 @@ def display_team():
             
             if picks_2024:
                 for pick in picks_2024:
-                    pick_info = f"**{pick.round}.{pick.pick_number} --** {pick.selection or 'No selection'}"
+                    pick_info = f"**{pick.round}.{pick.pick_number}**"
                     st.markdown(pick_info)
                     st.markdown("---")  # Adds a horizontal line between picks
             else:

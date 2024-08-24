@@ -38,36 +38,8 @@ tab1, tab2, tab3 = st.tabs(["Draftboard", "Team", "Admin"])
 with tab1:
     display_draftboard()
 
-# with tab2:
-#     if not st.session_state.trade_room_access:
-#         st.subheader("Enter Password for Trade Room")
-#         trade_room_password = st.text_input("Password for Trade Room:", type="password", key="trade_room_password")
-#         if st.button("Submit", key="trade"):
-#             if trade_room_password == TRADE_ROOM_PASSWORD:
-#                 st.session_state.trade_room_access = True
-#                 st.success("Access granted to Trade Room!")
-#             else:
-#                 st.error("Incorrect password. Please try again.")
-#     else:
-#         st.title("Trade Room")
-#         display_trade_room()
-
-# with tab3:
-#     if not st.session_state.commissioner_access:
-#         st.subheader("Enter Password for Commissioner")
-#         commissioner_password = st.text_input("Password for Commissioner:", type="password", key="commissioner_password")
-#         if st.button("Submit", key="commish"):
-#             if commissioner_password == COMMISSIONER_PASSWORD:
-#                 st.session_state.commissioner_access = True
-#                 st.success("Access granted to Commissioner!")
-#             else:
-#                 st.error("Incorrect password. Please try again.")
-#     else:
-#         st.title("Commissioner")
-#         display_commissioner()
-
 with tab2:
-    display_team()  # Use the new Team component
+    display_team()
 
 with tab3:
     if not st.session_state.commissioner_access:
