@@ -9,6 +9,19 @@ st.set_page_config(page_title="NWOAFFL 2024", page_icon=":football:", layout="wi
 st.markdown(
     """
     <style>
+    /* Set the background color to black for the entire page */
+    .css-fg4pbf {
+        background-color: black !important;
+        color: white !important;
+    }
+
+    /* Ensure background color remains black in Safari and all other browsers */
+    html, body, [data-testid="stAppViewContainer"], [data-testid="stHeader"], .main {
+        background-color: black !important;
+        color: white !important;
+    }
+
+    /* Adjust the block container styling */
     .main .block-container {
         max-width: 99%;  /* Adjust this value to control the maximum width */
         padding-left: 2rem;
@@ -20,7 +33,7 @@ st.markdown(
 )
 
 # Top navigation bar using st.tabs
-st.markdown("<h5 style='text-align: center;'>NWOAFFL 2024</h5>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: center; color: white;'>NWOAFFL 2024</h5>", unsafe_allow_html=True)
 
 # Define passwords for protected tabs
 TRADE_ROOM_PASSWORD = "t"
