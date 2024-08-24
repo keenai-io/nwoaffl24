@@ -1,3 +1,5 @@
+# components/team.py
+
 import streamlit as st
 from models import Team, Pick, session
 
@@ -20,11 +22,12 @@ def display_team():
         
         with col1:
             st.markdown("### 2024 Picks")
-            picks_2024 = session.query(Pick).filter_by(team_id=selected_team.id, year=2024).order_by(Pick.round, Pick.pick_number).all()
+            # Fetch picks where the selected team is the current owner for 2024
+            picks_2024 = session.query(Pick).filter_by(current_owner_id=selected_team.id, year=2024).order_by(Pick.round, Pick.pick_number).all()
             
             if picks_2024:
                 for pick in picks_2024:
-                    pick_info = f"**{pick.round}.{pick.pick_number}:** {pick.selection or 'No selection'}"
+                    pick_info = f"**{pick.round}.{pick.pick_number} --** {pick.selection or 'No selection'}"
                     st.markdown(pick_info)
                     st.markdown("---")  # Adds a horizontal line between picks
             else:
@@ -32,11 +35,12 @@ def display_team():
 
         with col2:
             st.markdown("### 2025 Picks")
-            picks_2025 = session.query(Pick).filter_by(team_id=selected_team.id, year=2025).order_by(Pick.round, Pick.pick_number).all()
+            # Fetch picks where the selected team is the current owner for 2025
+            picks_2025 = session.query(Pick).filter_by(current_owner_id=selected_team.id, year=2025).order_by(Pick.round, Pick.pick_number).all()
             
             if picks_2025:
                 for pick in picks_2025:
-                    pick_info = f"**{pick.round}.{pick.pick_number}:** {pick.selection or 'No selection'}"
+                    pick_info = f"**{pick.round}**"
                     st.markdown(pick_info)
                     st.markdown("---")  # Adds a horizontal line between picks
             else:
