@@ -67,3 +67,21 @@ with tab3:
     else:
         st.title("Commissioner")
         display_commissioner()
+
+def download_db():
+    db_path = "nwoaffl.db"  # Path to your production SQLite database file
+
+    try:
+        with open(db_path, "rb") as file:
+            st.download_button(
+                label="Download Database",
+                data=file,
+                file_name="nwoaffl.db",
+                mime="application/octet-stream"
+            )
+    except Exception as e:
+        st.error(f"Error: {e}")
+
+st.title("Download Production Database")
+download_db()
+

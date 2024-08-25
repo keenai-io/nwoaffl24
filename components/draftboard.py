@@ -44,13 +44,13 @@ def display_draftboard():
         background-color: transparent;
     }
     .pick-selection {
-        color: green;
+        color: lightgreen;  /* Changed to light green */
         margin-top: 5px;
         display: block;
     }
     hr {
         border: 0;
-        border-top: 1px solid green;
+        border-top: 1px solid lightgreen;  /* Changed to light green */
         margin: 5px 0;
     }
     img {
@@ -89,7 +89,7 @@ def display_draftboard():
                     pick_display += f"<br>{current_owner.name}"
                     cell_style = "color: yellow; border-color: yellow;"
 
-                # Add pick selection with green color and a horizontal rule
+                # Add pick selection with light green color and a horizontal rule
                 selection_display = f"<hr><span class='pick-selection'>{pick.selection}</span>" if pick.selection else ""
                 html += f"<td style='{cell_style}'>{pick_display}{selection_display}</td>"
             else:
